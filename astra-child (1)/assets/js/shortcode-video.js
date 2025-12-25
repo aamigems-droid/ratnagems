@@ -35,7 +35,9 @@
       'modestbranding=1',
       'playsinline=1',
       // CRITICAL FIX: Add origin to satisfy YouTube security (Fixes Error 153)
-      'origin=' + window.location.origin
+      'origin=' + window.location.origin,
+      'enablejsapi=1',
+      'widget_referrer=' + encodeURIComponent(window.location.href)
     ];
     
     if (start) params.push('start=' + start);

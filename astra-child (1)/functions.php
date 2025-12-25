@@ -52,6 +52,7 @@ function ratna_gems_setup_theme(): void {
     add_theme_support( 'woocommerce' );
 }
 
+
 if ( class_exists( '\\LiteSpeed\\Cloud' ) ) {
     add_action(
         'admin_init',

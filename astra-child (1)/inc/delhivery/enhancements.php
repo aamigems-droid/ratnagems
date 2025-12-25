@@ -433,7 +433,10 @@ function rg_delhivery_send_tracking_email_on_awb( $meta_id, $order_id, $meta_key
     }
     
     // Trigger the standard processing email which will include tracking info
-    WC()->mailer()->get_emails()['WC_Email_Customer_Processing_Order']->trigger( $order_id );
+    $emails = WC()->mailer()->get_emails();
+    if ( isset( $emails['WC_Email_Customer_Processing_Order'] ) ) {
+        $emails['WC_Email_Customer_Processing_Order']->trigger( $order_id );
+    }
     
     // Mark as sent
     $order->update_meta_data( '_delhivery_tracking_email_sent', current_time( 'mysql' ) );

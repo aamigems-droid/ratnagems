@@ -17,11 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 // CONFIGURATION
 // =============================================================================
 
-define( 'RG_GOOGLE_REVIEW_LINK', 'https://g.page/r/CRpBPoQkqNe1EBE/review' );
-define( 'RG_GOOGLE_MERCHANT_ID', 5357502282 );
-define( 'RG_REVIEW_DELAY_DAYS', 3 );
-define( 'RG_STORE_NAME', 'Ratna Gems' );
-define( 'RG_STORE_PHONE', '7067939337' );
+if ( ! defined( 'RG_GOOGLE_REVIEW_LINK' ) ) {
+    define( 'RG_GOOGLE_REVIEW_LINK', 'https://g.page/r/CRpBPoQkqNe1EBE/review' );
+}
+if ( ! defined( 'RG_GOOGLE_MERCHANT_ID' ) ) {
+    define( 'RG_GOOGLE_MERCHANT_ID', 5357502282 );
+}
+if ( ! defined( 'RG_REVIEW_DELAY_DAYS' ) ) {
+    define( 'RG_REVIEW_DELAY_DAYS', 3 );
+}
+if ( ! defined( 'RG_STORE_NAME' ) ) {
+    define( 'RG_STORE_NAME', 'Ratna Gems' );
+}
+if ( ! defined( 'RG_STORE_PHONE' ) ) {
+    define( 'RG_STORE_PHONE', '7067939337' );
+}
 if ( ! defined( 'RG_ADMIN_EMAIL' ) ) {
     define( 'RG_ADMIN_EMAIL', get_option( 'admin_email', 'admin@ratnagems.com' ) );
 }
