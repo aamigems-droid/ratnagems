@@ -252,6 +252,53 @@ HTML;
     echo $snippet;
 }
 
+add_action( 'wp_head', 'ratna_gems_print_meta_autoconfig_guard', 2 );
+function ratna_gems_print_meta_autoconfig_guard(): void {
+    $filtered_ids = apply_filters( 'ratnagems_meta_pixel_ids', array( '693068893177574' ) );
+    $filtered_ids = array_values(
+        array_filter(
+            array_unique(
+                array_map(
+                    static function ( $value ): string {
+                        $id = preg_replace( '/\D+/', '', (string) $value );
+
+                        return $id;
+                    },
+                    (array) $filtered_ids
+                )
+            )
+        )
+    );
+
+    if ( empty( $filtered_ids ) ) {
+        $filtered_ids = array( '693068893177574' );
+    }
+
+    $ids_json = wp_json_encode( $filtered_ids );
+    if ( ! $ids_json ) {
+        return;
+    }
+
+    $script = <<<JS
+window.fbq = window.fbq || function() {
+  (window.fbq.q = window.fbq.q || []).push(arguments);
+};
+window._fbq = window._fbq || window.fbq;
+try {
+  var rgPixelIds = {$ids_json};
+  if (Array.isArray(rgPixelIds)) {
+    rgPixelIds.forEach(function(id) {
+      if (id) {
+        window.fbq('set', 'autoConfig', 'false', id);
+      }
+    });
+  }
+} catch (error) {}
+JS;
+
+    echo wp_print_inline_script_tag( $script );
+}
+
 add_action( 'wp_head', 'ratna_gems_print_meta_pixel', 12 );
 function ratna_gems_print_meta_pixel(): void {
     $filtered_ids = apply_filters( 'ratnagems_meta_pixel_ids', array( '693068893177574' ) );
