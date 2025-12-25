@@ -330,6 +330,7 @@ function ratna_gems_print_meta_pixel(): void {
     'use strict';
     
     var initializedPixels = {};
+    var pageViewSent = {};
     var queuedEvents = [];
     var flushTimer = null;
     var dataLayerWrapped = false;
@@ -428,6 +429,17 @@ function ratna_gems_print_meta_pixel(): void {
       return digits.length >= 5 ? digits : '';
     }
 
+    function trackPageView(pixelId) {
+      if (!pixelId || typeof fbq !== 'function') {
+        return;
+      }
+      if (pageViewSent[pixelId]) {
+        return;
+      }
+      pageViewSent[pixelId] = true;
+      fbq('track', 'PageView');
+    }
+
     function loadPixel() {
       var pixelId = sanitizePixelId('{$pixel_id}');
       if (!pixelId) { return; }
@@ -444,6 +456,7 @@ function ratna_gems_print_meta_pixel(): void {
           var identifiers = buildMetaIds();
           if (identifiers.fbc) { fbq('set', 'fbc', identifiers.fbc); }
           if (identifiers.fbp) { fbq('set', 'fbp', identifiers.fbp); }
+          trackPageView(pixelId);
         } catch (e) {}
         return;
       }
@@ -481,6 +494,7 @@ function ratna_gems_print_meta_pixel(): void {
       var identifiers = buildMetaIds();
       if (identifiers.fbc) { fbq('set', 'fbc', identifiers.fbc); }
       if (identifiers.fbp) { fbq('set', 'fbp', identifiers.fbp); }
+      trackPageView(pixelId);
     }
 
 
