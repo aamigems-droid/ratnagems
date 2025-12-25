@@ -153,6 +153,10 @@ jQuery(document).ready(function($) {
         const awb = $(this).data('awb');
         const date = window.prompt('Enter new pickup date (YYYY-MM-DD):', '');
         if (!date) return;
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+            showDelhiveryModal('Error', 'Invalid date format. Use YYYY-MM-DD.');
+            return;
+        }
 
         $.ajax({
             url: rgDelhiveryAjax.url,
