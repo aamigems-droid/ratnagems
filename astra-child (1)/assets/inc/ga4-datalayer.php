@@ -295,10 +295,14 @@ function ratna_gems_ga4_get_fbclid(): string {
 
     if ( ! empty( $_COOKIE['_fbc'] ) ) {
         $fbc = (string) $_COOKIE['_fbc'];
+        $fbc = preg_replace( '/[^a-zA-Z0-9._-]/', '', $fbc );
     } elseif ( ! empty( $_GET['fbclid'] ) ) {
         // Use microtime(true) * 1000 for milliseconds per Meta CAPI spec.
         // Format: fb.1.{creation_time_millis}.{fbclid}
-        $fbc = 'fb.1.' . round( microtime( true ) * 1000 ) . '.' . sanitize_text_field( (string) $_GET['fbclid'] );
+        $fbclid = preg_replace( '/[^a-zA-Z0-9._-]/', '', wp_unslash( (string) $_GET['fbclid'] ) );
+        if ( '' !== $fbclid ) {
+            $fbc = 'fb.1.' . round( microtime( true ) * 1000 ) . '.' . $fbclid;
+        }
     }
 
     return $fbc;

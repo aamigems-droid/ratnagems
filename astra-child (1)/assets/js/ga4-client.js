@@ -61,8 +61,10 @@
     if (!state) {
       return false;
     }
-    var value = (state.ad_user_data || '').toString().toLowerCase();
-    return value === 'granted';
+    var required = ['ad_storage', 'analytics_storage', 'ad_user_data', 'ad_personalization'];
+    return required.every(function(key){
+      return String(state[key] || '').toLowerCase() === 'granted';
+    });
   }
 
   /**

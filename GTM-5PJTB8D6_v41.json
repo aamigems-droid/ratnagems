@@ -3653,7 +3653,24 @@
         "containerId": "227273454",
         "triggerId": "112",
         "name": "CE | view_cart | ads_granted",
-        "type": "ALWAYS",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "view_cart"
+              }
+            ]
+          }
+        ],
         "filter": [
           {
             "type": "EQUALS",
