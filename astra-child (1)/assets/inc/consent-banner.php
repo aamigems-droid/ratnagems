@@ -162,7 +162,29 @@ function ratnagems_render_consent_banner(): void {
 
 add_action( 'wp_head', 'ratna_gems_print_consent_bootstrap', 1 );
 function ratna_gems_print_consent_bootstrap(): void {
-    $script = <<<'JS'
+    $regions = apply_filters( 'ratnagems_consent_regions', array() );
+    $regions = array_values(
+        array_filter(
+            array_unique(
+                array_map(
+                    static function ( $value ): string {
+                        return strtoupper( sanitize_text_field( (string) $value ) );
+                    },
+                    (array) $regions
+                )
+            )
+        )
+    );
+
+    $region_line = '';
+    if ( ! empty( $regions ) ) {
+        $regions_json = wp_json_encode( $regions );
+        if ( $regions_json ) {
+            $region_line = "  region: {$regions_json},\n";
+        }
+    }
+
+    $script = <<<JS
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 
@@ -174,7 +196,7 @@ gtag('consent', 'default', {
   ad_personalization: 'denied',
   functionality_storage: 'granted',
   security_storage: 'granted',
-  wait_for_update: 500
+{$region_line}  wait_for_update: 500
 });
 
 // Privacy-preserving defaults

@@ -147,10 +147,10 @@
       if ( navigator.sendBeacon ) {
         navigator.sendBeacon(config.ajaxUrl, form);
       } else {
-        fetch(config.ajaxUrl, { 
-          method: 'POST', 
-          body: form, 
-          credentials: 'same-origin' 
+        fetch(config.ajaxUrl, {
+          method: 'POST',
+          body: form,
+          credentials: 'same-origin'
         }).catch(function(){});
       }
     } catch (error) {
@@ -193,8 +193,8 @@
 
     // Generate unique event ID for deduplication
     var eventId = 'rg_add_to_cart_' + (
-      window.crypto && window.crypto.randomUUID 
-        ? window.crypto.randomUUID() 
+      window.crypto && window.crypto.randomUUID
+        ? window.crypto.randomUUID()
         : Math.random().toString(16).slice(2)
     );
 
@@ -206,7 +206,7 @@
       event_id: eventId,
       // Include event_time (epoch seconds) so server-side tags receive accurate timestamp
       // This mirrors the server-side PHP dataLayer events and ensures consistency across
-      // all GA4 ecommerce events【244156286699136†L216-L231】.
+      // all GA4 ecommerce events.
       event_time: Math.floor(Date.now() / 1000),
       event_source_url: getCurrentUrl(),
       ecommerce: {
@@ -252,8 +252,8 @@
       headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
       body: params.toString()
     })
-    .then(function(response){ 
-      return response.json(); 
+    .then(function(response){
+      return response.json();
     })
     .then(function(result){
       if (result && result.success && result.data) {
@@ -261,8 +261,8 @@
       }
       handleProductResponse(result);
     })
-    .catch(function(error){ 
-      console.error('GA4 product lookup failed', error); 
+    .catch(function(error){
+      console.error('GA4 product lookup failed', error);
     });
   }
 
