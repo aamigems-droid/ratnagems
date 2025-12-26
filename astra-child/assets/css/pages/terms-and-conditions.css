@@ -1,0 +1,171 @@
+/*
+ * Sarfaraz Gems - "Terms & Conditions" Page Styles (Final Attractive Version)
+ * This code should be added to the bottom of the main style.css file or a page-specific CSS block.
+*/
+
+/* --- 0. Theme Override --- */
+.page .entry-content .tnc-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+}
+
+/* --- 1. Base & Hero Section --- */
+.tnc-container {
+    background-color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.tnc-hero {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background-color: var(--ast-global-color-2, #0F172A); /* Navy */
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.tnc-hero-title {
+    font-size: 2.5rem;
+    color: var(--ast-global-color-5, #FFFFFF) !important;
+    margin-bottom: 0.5rem;
+}
+.tnc-hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 60ch;
+    margin: 0 auto 1.5rem;
+}
+.tnc-effective-date {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* --- 2. Main Content Layout --- */
+.tnc-container main {
+    padding: 3rem 0;
+}
+.tnc-main-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- 3. Sidebar Navigation --- */
+.tnc-sidebar {
+    position: sticky;
+    top: 100px; /* Adjust based on your sticky header height */
+    align-self: start;
+}
+.tnc-nav {
+    background-color: var(--ast-global-color-4, #FAF5E5); /* Light Cream */
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+.tnc-nav h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ast-global-color-6, #F0E6C5); /* Light Border */
+    color: var(--ast-global-color-2, #0F172A) !important; /* Navy */
+}
+.tnc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.tnc-nav li a {
+    display: block;
+    padding: 0.75rem 0;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--ast-global-color-3, #4A4A4A); /* Dark Gray */
+    transition: color 0.3s ease;
+}
+.tnc-nav li a:hover {
+    color: var(--ast-global-color-0, #DCA54A); /* Gold */
+}
+
+/* --- 4. Content Sections --- */
+.tnc-content {
+    line-height: 1.8;
+}
+.tnc-section {
+    background-color: var(--ast-global-color-5, #FFFFFF); /* White */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+.tnc-section:last-child {
+    margin-bottom: 0;
+}
+.tnc-section h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--ast-global-color-2, #0F172A) !important; /* Navy */
+}
+.tnc-section h2 i {
+    color: var(--ast-global-color-0, #DCA54A); /* Gold */
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+.tnc-section ul {
+    padding-left: 20px;
+    margin-top: 1rem;
+}
+.tnc-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.tnc-policy-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.tnc-policy-link {
+    display: block;
+    padding: 1rem;
+    background-color: var(--ast-global-color-4, #FAF5E5);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 700;
+    border: 1px solid var(--ast-global-color-6, #F0E6C5);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.tnc-policy-link:hover {
+    background-color: var(--ast-global-color-6, #F0E6C5);
+    border-color: var(--ast-global-color-0, #DCA54A);
+    text-decoration: none;
+}
+
+/* --- 5. Responsive Styles --- */
+@media (min-width: 992px) {
+    .tnc-main-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 3rem;
+    }
+    .tnc-hero-title {
+        font-size: 3rem;
+    }
+}
+@media (max-width: 991px) {
+    .tnc-sidebar {
+        position: static; /* Unstick the sidebar on mobile */
+    }
+}
+@media (min-width: 768px) {
+    .tnc-policy-links {
+        grid-template-columns: 1fr 1fr;
+    }
+}

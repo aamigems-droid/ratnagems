@@ -43,6 +43,7 @@ add_action( 'wp_enqueue_scripts', 'sg_enqueue_assets' );
 function sg_enqueue_assets() {
 
     $css_path = get_stylesheet_directory_uri() . '/assets/css/';
+    $pages_css_path = $css_path . 'pages/';
     $js_path  = get_stylesheet_directory_uri() . '/assets/js/';
 
 	// --- Enqueue Stylesheets ---
@@ -54,6 +55,42 @@ function sg_enqueue_assets() {
     wp_enqueue_style( 'sg-whatsapp-button-style', $css_path . 'whatsapp-button.css', [ 'child-style' ], CHILD_THEME_VERSION );
     wp_enqueue_style( 'sg-sticky-footer-bar-style', $css_path . 'sticky-footer-bar.css', [ 'child-style' ], CHILD_THEME_VERSION );
     wp_enqueue_style( 'sg-product-filters-style', $css_path . 'product-filters.css', [ 'child-style' ], CHILD_THEME_VERSION );
+
+    if ( is_front_page() ) {
+        wp_enqueue_style( 'sg-homepage-page-style', $pages_css_path . 'home.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
+    if ( is_page( [ 'terms-and-conditions', 'terms-conditions', 'termsandconditions' ] ) ) {
+        wp_enqueue_style( 'sg-terms-conditions-style', $pages_css_path . 'terms-and-conditions.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
+    if ( is_page( [ 'shipping-and-delivery', 'shipping-delivery-policy', 'shippinganddelivery' ] ) ) {
+        wp_enqueue_style( 'sg-shipping-delivery-style', $pages_css_path . 'shipping-delivery-policy.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
+    if ( is_page( [ 'return-and-refund', 'return-refund-policy', 'returnandrefund' ] ) ) {
+        wp_enqueue_style( 'sg-return-refund-style', $pages_css_path . 'return-refund-policy.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
+    if ( is_page( [ 'privacy-policy', 'privacypolicy' ] ) ) {
+        wp_enqueue_style( 'sg-privacy-policy-style', $pages_css_path . 'privacy-policy.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
+    if ( is_page( [ 'faq', 'faqs' ] ) ) {
+        wp_enqueue_style( 'sg-faq-style', $pages_css_path . 'faq.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
+    if ( is_page( [ 'contact-us', 'contactus' ] ) ) {
+        wp_enqueue_style( 'sg-contact-us-style', $pages_css_path . 'contact-us.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
+    if ( is_page( [ 'about-us', 'aboutus' ] ) ) {
+        wp_enqueue_style( 'sg-about-us-style', $pages_css_path . 'about-us.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
+    if ( is_shop() ) {
+        wp_enqueue_style( 'sg-shop-style', $pages_css_path . 'shop.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
 
 	// --- Enqueue Scripts ---
 	wp_enqueue_script( 'sg-homepage-scripts', $js_path . 'homepage-scripts.js', [], CHILD_THEME_VERSION, true );

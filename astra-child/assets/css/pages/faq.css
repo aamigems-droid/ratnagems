@@ -1,0 +1,151 @@
+/*
+ * Sarfaraz Gems - "FAQ" Page Styles (Final Comprehensive Version)
+ * This code should be added to the bottom of the main style.css file or a page-specific CSS block.
+*/
+
+/* --- 0. Theme Override --- */
+.page .entry-content .faq-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+}
+
+/* --- 1. Base & Hero Section --- */
+.faq-container {
+    background-color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.faq-hero {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background-color: var(--ast-global-color-2, #0F172A); /* Navy */
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.faq-hero-title {
+    font-size: 2.5rem;
+    color: var(--ast-global-color-5, #FFFFFF) !important;
+    margin-bottom: 0.5rem;
+}
+.faq-hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 60ch;
+    margin: 0 auto;
+}
+
+/* --- 2. Main Content & Filters --- */
+.faq-container main {
+    padding: 3rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.faq-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+.faq-category-btn {
+    background-color: var(--ast-global-color-4, #FAF5E5);
+    color: var(--ast-global-color-3, #4A4A4A);
+    border: 1px solid var(--ast-global-color-6, #F0E6C5);
+    border-radius: 50px;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.faq-category-btn:hover {
+    background-color: var(--ast-global-color-6, #F0E6C5);
+    border-color: var(--ast-global-color-0, #DCA54A);
+}
+.faq-category-btn.active {
+    background-color: var(--ast-global-color-0, #DCA54A);
+    color: var(--ast-global-color-5, #FFFFFF);
+    border-color: var(--ast-global-color-0, #DCA54A);
+}
+
+/* --- 3. Accordion Styles --- */
+.faq-category-group {
+    margin-bottom: 2.5rem;
+}
+.faq-category-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--ast-global-color-6, #F0E6C5);
+    color: var(--ast-global-color-2, #0F172A) !important;
+}
+.faq-accordion {
+    border: 1px solid var(--ast-global-color-6, #F0E6C5);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.faq-item {
+    border-bottom: 1px solid var(--ast-global-color-6, #F0E6C5);
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1.25rem;
+    transition: background-color 0.3s ease;
+}
+.faq-question:hover {
+    background-color: var(--ast-global-color-4, #FAF5E5);
+}
+.faq-question h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--ast-global-color-2, #0F172A);
+}
+.faq-icon {
+    font-size: 1rem;
+    color: var(--ast-global-color-3, #4A4A4A);
+    transition: transform 0.3s ease;
+}
+.faq-item.active .faq-question {
+    background-color: var(--ast-global-color-2, #0F172A);
+}
+.faq-item.active .faq-question h3 {
+    color: var(--ast-global-color-5, #FFFFFF);
+}
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: var(--ast-global-color-5, #FFFFFF);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    background-color: var(--ast-global-color-4, #FAF5E5);
+}
+.faq-answer > div {
+    padding: 1.25rem;
+    line-height: 1.8;
+}
+.faq-answer ul {
+    padding-left: 20px;
+    margin-top: 1rem;
+}
+.faq-answer li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- 4. Responsive Styles --- */
+@media (min-width: 992px) {
+    .faq-hero-title {
+        font-size: 3rem;
+    }
+}
