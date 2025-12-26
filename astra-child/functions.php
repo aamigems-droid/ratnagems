@@ -64,7 +64,7 @@ function sg_enqueue_assets() {
     wp_enqueue_script( 'sg-product-filters-script', $js_path . 'product-filters.js', ['jquery', 'jquery-ui-slider'], CHILD_THEME_VERSION, true );
 
     // --- Localize Scripts (Pass PHP data to JS) ---
-    wp_localize_script( 'sg-homepage-scripts', 'sg_ajax_obj', [ 'ajax_url' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'sg_subscriber_nonce' ) ] );
+    wp_localize_script( 'sg-homepage-scripts', 'sg_ajax_obj', [ 'ajax_url' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'add_new_subscriber_nonce' ) ] );
 
     $filter_params = [ 'ajax_url' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'sg_filter_nonce' ), 'currency_symbol' => get_woocommerce_currency_symbol(), 'archive_slug' => '', 'is_cat' => false ];
     if ( is_product_category() ) { $filter_params['archive_slug'] = get_queried_object()->slug; $filter_params['is_cat'] = true; } elseif ( is_product_tag() ) { $filter_params['archive_slug'] = get_queried_object()->slug; }

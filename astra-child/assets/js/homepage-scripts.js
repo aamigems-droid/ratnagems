@@ -246,17 +246,21 @@ document.addEventListener('DOMContentLoaded', function () {
      * Initializes subscription form.
      */
     function initializeSubscriptionForm() {
-        const subscribeForm = document.querySelector('.subscription-form');
+        const subscribeForm = document.querySelector('#sg-subscription-form') || document.querySelector('.subscription-form');
+        const messageContainer = document.querySelector('#sg-form-message-container');
         const formWrapper = document.querySelector('.subscription-form-wrapper');
-        if (!subscribeForm || !formWrapper || typeof sg_ajax_obj === 'undefined' || !sg_ajax_obj.nonce) return;
+        const messageTarget = messageContainer || formWrapper || (subscribeForm ? subscribeForm.parentNode : null);
+        if (!subscribeForm || !messageTarget || typeof sg_ajax_obj === 'undefined' || !sg_ajax_obj.nonce) return;
 
         function displayFormMessage(message, type) {
-            const existingMessage = formWrapper.querySelector('.form-message');
-            if (existingMessage) existingMessage.remove();
+            const existingMessage = messageTarget.querySelector('.form-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
             const messageElement = document.createElement('div');
             messageElement.className = `form-message ${type}`;
             messageElement.textContent = message;
-            subscribeForm.parentNode.insertBefore(messageElement, subscribeForm.nextSibling);
+            messageTarget.appendChild(messageElement);
             setTimeout(() => {
                 if (messageElement) {
                     messageElement.style.opacity = '0';

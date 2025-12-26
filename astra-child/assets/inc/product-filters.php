@@ -151,7 +151,10 @@ final class SG_Product_Filter {
         if ( ! is_shop() && ! is_product_taxonomy() ) return;
         
         $data = $this->get_current_products_filter_data();
-        $get = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+        $get = [];
+        if ( ! empty( $_GET ) ) {
+            $get = map_deep( wp_unslash( $_GET ), 'sanitize_text_field' );
+        }
         $current_min_price = $get['min_price'] ?? $data['min_price'];
         $current_max_price = $get['max_price'] ?? $data['max_price'];
         $current_min_carat = $get['min_carat'] ?? $data['min_carat'];
