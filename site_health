@@ -1,0 +1,161 @@
+`
+### wp-core ###
+
+version: 6.9
+site_language: en_US
+user_language: en_US
+timezone: +05:30
+permalink: /%postname%/
+https_status: true
+multisite: false
+user_registration: 1
+blog_public: 0
+default_comment_status: open
+environment_type: production
+user_count: 4
+dotorg_communication: true
+
+### wp-paths-sizes ###
+
+wordpress_path: /home/u161580357/domains/sarfarazgems.com/public_html
+wordpress_size: 87.94 MB (92210667 bytes)
+uploads_path: /home/u161580357/domains/sarfarazgems.com/public_html/wp-content/uploads
+uploads_size: 285.25 MB (299111120 bytes)
+themes_path: /home/u161580357/domains/sarfarazgems.com/public_html/wp-content/themes
+themes_size: 26.13 MB (27400926 bytes)
+plugins_path: /home/u161580357/domains/sarfarazgems.com/public_html/wp-content/plugins
+plugins_size: 121.97 MB (127892890 bytes)
+fonts_path: /home/u161580357/domains/sarfarazgems.com/public_html/wp-content/uploads/fonts
+fonts_size: 1.89 MB (1982368 bytes)
+database_size: 47.86 MB (50184192 bytes)
+total_size: 571.04 MB (598782163 bytes)
+
+### wp-dropins (2) ###
+
+advanced-cache.php: true
+object-cache.php: true
+
+### wp-active-theme ###
+
+name: Ratna Gems (astra-child)
+version: 1.0.0
+author: Brainstorm Force
+author_website: http://wpastra.com/about/
+parent_theme: Astra (astra)
+theme_features: core-block-patterns, astra_hooks, widgets-block-editor, align-wide, automatic-feed-links, title-tag, post-thumbnails, starter-content, html5, post-formats, custom-logo, customize-selective-refresh-widgets, editor-style, responsive-embeds, woocommerce, rank-math-breadcrumbs, amp, editor-color-palette, wc-product-gallery-zoom, wc-product-gallery-lightbox, wc-product-gallery-slider, widgets, menus
+theme_path: /home/u161580357/domains/sarfarazgems.com/public_html/wp-content/themes/astra-child
+auto_update: Disabled
+
+### wp-parent-theme ###
+
+name: Astra (astra)
+version: 4.11.18
+author: Brainstorm Force
+author_website: https://wpastra.com/about/?utm_source=theme_preview&utm_medium=author_link&utm_campaign=astra_theme
+theme_path: /home/u161580357/domains/sarfarazgems.com/public_html/wp-content/themes/astra
+auto_update: Enabled
+
+### wp-themes-inactive (1) ###
+
+Twenty Twenty-Four: version: 1.4, author: the WordPress team, Auto-updates disabled
+
+### wp-mu-plugins (1) ###
+
+SSO: version: 0.5, author: Garth Mortensen, Mike Hansen
+
+### wp-plugins-active (6) ###
+
+LiteSpeed Cache: version: 7.7, author: LiteSpeed Technologies, Auto-updates enabled
+Nextend Social Login: version: 3.1.22, author: Nextendweb, Auto-updates enabled
+Rank Math SEO: version: 1.0.260, author: Rank Math SEO, Auto-updates enabled
+Widgets for Google Reviews: version: 13.2.5, author: Trustindex.io <support@trustindex.io>, Auto-updates enabled
+WooCommerce: version: 10.4.3, author: Automattic, Auto-updates enabled
+Wordfence Security: version: 8.1.4, author: Wordfence, Auto-updates enabled
+
+### wp-media ###
+
+image_editor: WP_Image_Editor_Imagick
+imagick_module_version: 1809
+imagemagick_version: ImageMagick 7.1.1-43 Q16-HDRI x86_64 22550 https://imagemagick.org
+imagick_version: 3.7.0
+file_uploads: 1
+post_max_size: 2048M
+upload_max_filesize: 2048M
+max_effective_size: 2 GB
+max_file_uploads: 20
+imagick_limits: 
+	imagick::RESOURCETYPE_AREA: 2 TB
+	imagick::RESOURCETYPE_DISK: 9.2233720368548E+18
+	imagick::RESOURCETYPE_FILE: 393216
+	imagick::RESOURCETYPE_MAP: 1,006 GB
+	imagick::RESOURCETYPE_MEMORY: 503 GB
+	imagick::RESOURCETYPE_THREAD: 1
+	imagick::RESOURCETYPE_TIME: 0
+imagemagick_file_formats: 3FR, 3G2, 3GP, A, AAI, AI, APNG, ART, ARW, ASHLAR, AVCI, AVI, AVIF, AVS, B, BAYER, BAYERA, BGR, BGRA, BGRO, BIE, BMP, BMP2, BMP3, BRF, C, CAL, CALS, CANVAS, CAPTION, CIN, CIP, CLIP, CMYK, CMYKA, CR2, CR3, CRW, CUBE, CUR, CUT, DATA, DCM, DCR, DCRAW, DCX, DDS, DFONT, DNG, DOT, DPX, DXT1, DXT5, EPDF, EPI, EPS, EPS2, EPS3, EPSF, EPSI, EPT, EPT2, EPT3, ERF, EXR, FARBFELD, FAX, FF, FFF, FILE, FITS, FL32, FLV, FRACTAL, FTP, FTS, FTXT, G, G3, G4, GIF, GIF87, GRADIENT, GRAY, GRAYA, GROUP4, GV, HALD, HDR, HEIC, HEIF, HISTOGRAM, HRZ, HTM, HTML, HTTP, HTTPS, ICB, ICO, ICON, IIQ, INFO, INLINE, IPL, ISOBRL, ISOBRL6, J2C, J2K, JBG, JBIG, JNG, JNX, JP2, JPC, JPE, JPEG, JPG, JPM, JPS, JPT, JSON, K, K25, KDC, LABEL, M, M2V, M4V, MAC, MAP, MASK, MAT, MATTE, MDC, MEF, MIFF, MKV, MNG, MONO, MOS, MOV, MP4, MPC, MPEG, MPG, MPO, MRW, MSL, MSVG, MTV, MVG, NEF, NRW, NULL, O, ORA, ORF, OTB, OTF, PAL, PALM, PAM, PANGO, PATTERN, PBM, PCD, PCDS, PCL, PCT, PCX, PDB, PDF, PDFA, PEF, PES, PFA, PFB, PFM, PGM, PGX, PHM, PICON, PICT, PIX, PJPEG, PLASMA, PNG, PNG00, PNG24, PNG32, PNG48, PNG64, PNG8, PNM, POCKETMOD, PPM, PS, PS2, PS3, PSB, PSD, PTIF, PWP, QOI, R, RADIAL-GRADIENT, RAF, RAS, RAW, RGB, RGB565, RGBA, RGBO, RGF, RLA, RLE, RMF, RSVG, RW2, RWL, SCR, SCREENSHOT, SCT, SFW, SGI, SHTML, SIX, SIXEL, SPARSE-COLOR, SR2, SRF, SRW, STEGANO, STI, STRIMG, SUN, SVG, SVGZ, TEXT, TGA, THUMBNAIL, TIFF, TIFF64, TILE, TIM, TM2, TTC, TTF, TXT, UBRL, UBRL6, UIL, UYVY, VDA, VICAR, VID, VIFF, VIPS, VST, WBMP, WEBM, WEBP, WMF, WMV, WMZ, WPG, X, X3F, XBM, XC, XCF, XPM, XPS, XV, XWD, Y, YAML, YCBCR, YCBCRA, YUV
+image_format_transforms: image/heic → image/jpeg, image/heif → image/jpeg, image/heic-sequence → image/jpeg, image/heif-sequence → image/jpeg
+gd_version: 2.3.3
+gd_formats: GIF, JPEG, PNG, WebP, BMP, AVIF, XPM
+ghostscript_version: unknown
+
+### wp-server ###
+
+server_architecture: Linux 5.14.0-503.40.1.el9_5.x86_64 x86_64
+httpd_software: LiteSpeed
+php_version: 8.3.19 64bit
+php_sapi: litespeed
+max_input_variables: 5000
+time_limit: 360
+memory_limit: 512M
+max_input_time: 360
+upload_max_filesize: 2048M
+php_post_max_size: 2048M
+curl_version: 7.76.1 OpenSSL/3.2.2
+suhosin: false
+imagick_availability: true
+pretty_permalinks: true
+htaccess_extra_rules: true
+static_robotstxt_file: false
+current: 2025-12-26T20:58:09+00:00
+utc-time: Friday, 26-Dec-25 20:58:09 UTC
+server-time: 2025-12-27T02:28:08+05:30
+
+### wp-database ###
+
+extension: mysqli
+server_version: 11.8.3-MariaDB-log
+client_version: mysqlnd 8.3.19
+max_allowed_packet: 1073741824
+max_connections: 2000
+
+### wp-constants ###
+
+WP_HOME: undefined
+WP_SITEURL: undefined
+WP_CONTENT_DIR: /home/u161580357/domains/sarfarazgems.com/public_html/wp-content
+WP_PLUGIN_DIR: /home/u161580357/domains/sarfarazgems.com/public_html/wp-content/plugins
+WP_MEMORY_LIMIT: 512M
+WP_MAX_MEMORY_LIMIT: 512M
+WP_DEBUG: false
+WP_DEBUG_DISPLAY: true
+WP_DEBUG_LOG: false
+SCRIPT_DEBUG: false
+WP_CACHE: true
+CONCATENATE_SCRIPTS: undefined
+COMPRESS_SCRIPTS: undefined
+COMPRESS_CSS: undefined
+WP_ENVIRONMENT_TYPE: undefined
+WP_DEVELOPMENT_MODE: undefined
+DB_CHARSET: utf8
+DB_COLLATE: undefined
+
+### wp-filesystem ###
+
+wordpress: writable
+wp-content: writable
+uploads: writable
+plugins: writable
+themes: writable
+fonts: writable
+mu-plugins: writable
+
+`
