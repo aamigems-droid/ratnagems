@@ -1,0 +1,77 @@
+/* ==============================
+   Ratna Gems — Privacy Policy
+   (scoped; Spectra-free)
+   ============================== */
+.rg-privacy-page {
+  /* Design tokens (scoped) */
+  --primary: #004E81;
+  --primary-dark: #003a61;
+  --primary-light: #e6f0f7;
+
+  --text-dark: #333;
+  --text-light: #555;
+
+  --bg: #fff;
+  --bg-light: #f8f9fa;
+  --border: #dee2e6;
+
+  width: 100%;
+}
+
+/* layout shells */
+.rg-privacy-container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+.rg-privacy-header { background: var(--bg-light); padding: 3rem 0; text-align: center; border-bottom: 1px solid var(--border); }
+.rg-privacy-header h1 { color: var(--primary); margin-bottom: .5rem; font-weight: 700; }
+.rg-subtitle { color: var(--text-light); margin: .75rem 0; }
+.rg-effective-date { display: inline-block; background: var(--bg); padding: .4rem 1rem; border-radius: 50px; border: 1px solid var(--border); margin-top: 1rem; font-weight: 600; color: var(--text-dark); }
+
+/* section blocks */
+.rg-privacy-section { padding: 2rem 0; }
+.rg-privacy-section:nth-of-type(even) { background: var(--bg-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.rg-privacy-section h2 {
+  color: var(--text-dark);
+  display: flex; align-items: center; gap: .75rem;
+  margin-bottom: 1rem; font-weight: 700;
+}
+.rg-icon {
+  background: var(--primary-light);
+  border-radius: 50%;
+  width: 2.5rem; height: 2.5rem;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+}
+.rg-icon svg { color: var(--primary); width: 1.25rem; height: 1.25rem; }
+
+/* text */
+.rg-privacy-section p { margin-bottom: 1rem; color: var(--text-light); line-height: 1.7; }
+.rg-privacy-page ul { padding-left: 1.2rem; margin-bottom: 1.2rem; }
+.rg-privacy-page li { margin-bottom: .6rem; }
+
+/* links (scoped) */
+.rg-privacy-page a { color: var(--primary); font-weight: 600; text-decoration: underline; transition: color .25s ease; }
+.rg-privacy-page a:hover { color: var(--primary-dark); text-decoration: none; }
+.rg-privacy-page a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 3px; }
+
+/* contact card */
+.rg-contact-card {
+  background: var(--bg-light);
+  border-left: 4px solid var(--primary);
+  padding: 1rem; border-radius: 6px; margin-top: 1rem;
+  border: 1px solid var(--border);
+}
+.rg-contact-card p { margin-bottom: .6rem; }
+.rg-contact-card p:last-child { margin: 0; }
+
+/* reveal-on-scroll (page-local) */
+.rg-aos { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; will-change: opacity, transform; }
+.rg-aos.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .rg-aos { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* responsive */
+@media (min-width: 768px) {
+  .rg-privacy-header { padding: 4rem 0; }
+  .rg-icon { width: 3rem; height: 3rem; }
+  .rg-icon svg { width: 1.5rem; height: 1.5rem; }
+}

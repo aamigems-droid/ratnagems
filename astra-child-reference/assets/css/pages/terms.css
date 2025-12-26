@@ -1,0 +1,143 @@
+/* ===============================
+   Ratna Gems — Terms & Conditions
+   (scoped; Spectra-free)
+   =============================== */
+
+/* Scope design tokens to .tnc-page to avoid leaking */
+.tnc-page {
+  --primary-color: #004E81;
+  --secondary-color: #2E7D32;
+  --accent-color: #D32F2F;
+
+  --text-dark: #212529;
+  --text-light: #495057;
+
+  --bg-light: #F8F9FA;
+  --bg-white: #FFFFFF;
+  --border-color: #DEE2E6;
+}
+
+/* base */
+.tnc-page.page-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background-color: var(--bg-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.07);
+}
+.tnc-page *, .tnc-page *::before, .tnc-page *::after { box-sizing: border-box; }
+.tnc-page h1, .tnc-page h2, .tnc-page h3 {
+  line-height: 1.3; color: var(--primary-color); font-weight: 700; margin: 0 0 1rem 0;
+}
+.tnc-page p {
+  margin: 0 0 1rem 0; color: var(--text-light); max-width: 75ch; line-height: 1.7;
+}
+.tnc-page a { color: var(--primary-color); font-weight: 600; text-decoration: underline; }
+.tnc-page a:hover { text-decoration: none; }
+.tnc-page a:focus-visible { outline: 2px solid var(--secondary-color); outline-offset: 2px; border-radius: 4px; }
+.tnc-page img, .tnc-page svg { max-width: 100%; display: block; }
+
+/* hero */
+.tnc-hero.page-hero {
+  padding: 3rem 1.5rem; text-align: center;
+  background-color: var(--bg-light); border-bottom: 1px solid var(--border-color);
+}
+.tnc-hero h1 { font-size: clamp(2rem, 5vw + 1rem, 3.2rem); }
+.tnc-hero .intro-text {
+  font-size: clamp(1rem, 1vw + .8rem, 1.1rem);
+  margin-left: auto; margin-right: auto; color: var(--text-light);
+}
+
+/* main & sections */
+.tnc-page main { padding: 2.5rem 1.5rem; }
+.tnc-page .policy-section { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border-color); }
+.tnc-page .policy-section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+/* section headers */
+.tnc-page .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.tnc-page .section-icon {
+  flex-shrink: 0; width: 45px; height: 45px; background: #e6f0f7; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);
+}
+.tnc-page .section-icon svg { width: 24px; height: 24px; fill: var(--primary-color); }
+.tnc-page .section-header h2 { font-size: clamp(1.4rem, 3vw + 1rem, 1.8rem); }
+
+/* cards & highlights */
+.tnc-page .card-grid { display: grid; gap: 1.5rem; margin-top: 1.5rem; grid-template-columns: 1fr; }
+.tnc-page .info-card {
+  background-color: var(--bg-light); border-radius: 12px; padding: 1.5rem;
+  border: 1px solid var(--border-color); transition: transform .3s ease, box-shadow .3s ease;
+}
+.tnc-page .info-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+.tnc-page .info-card h3 { color: var(--secondary-color); font-size: 1.25rem; }
+
+.tnc-page .highlight-box.warning {
+  background-color: #FEF2F2; border-left: 4px solid var(--accent-color);
+  padding: 1.5rem; border-radius: 0 8px 8px 0; margin-top: 1.5rem;
+}
+.tnc-page .highlight-box.warning p { color: var(--accent-color); font-weight: 500; }
+
+.tnc-page .intro-box {
+  background-color: var(--bg-light); border-left: 4px solid var(--primary-color);
+  padding: 1.5rem; border-radius: 0 8px 8px 0;
+}
+
+.tnc-page .visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0,0,0,0); border: 0; white-space: nowrap;
+}
+
+/* policy links */
+.tnc-page .policy-links { list-style: none; padding: 0; margin-top: 1.5rem; display: grid; gap: 1rem; }
+.tnc-page .policy-links a {
+  display: block; padding: 1rem; background-color: var(--bg-light); border-radius: 8px;
+  text-align: center; font-weight: 700; border: 1px solid var(--border-color); text-decoration: none;
+}
+.tnc-page .policy-links a:hover { background-color: #e6f0f7; border-color: var(--primary-color); }
+.tnc-page .policy-links a:focus-visible { outline: 0; box-shadow: 0 0 0 3px rgba(0,78,129,.28); border-color: var(--primary-color); }
+
+/* legal list */
+.tnc-page .tnc-list { list-style: none; padding-left: 0; margin-top: 1.5rem; }
+.tnc-page .tnc-list li {
+  display: flex; align-items: flex-start; gap: .75rem; margin-bottom: 1rem; color: var(--text-light);
+}
+.tnc-page .tnc-list li::before { content: '✔'; color: var(--secondary-color); font-weight: 900; margin-top: .2rem; }
+
+/* contact */
+.tnc-page .contact-section {
+  text-align: center; background-color: var(--bg-light); padding: 2.5rem 1.5rem; border-radius: 12px;
+}
+.tnc-page .contact-buttons { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; align-items: center; }
+.tnc-page .contact-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: .75rem;
+  padding: .75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 1rem; min-width: 250px;
+  border: 2px solid transparent; transition: transform .2s ease, box-shadow .2s ease; text-decoration: none; color: #fff;
+}
+.tnc-page .contact-button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,.1); }
+.tnc-page .contact-button:focus-visible { outline: 0; box-shadow: 0 0 0 3px rgba(46,125,50,.35); }
+.tnc-page .contact-button.email { background-color: var(--primary-color); }
+.tnc-page .contact-button.whatsapp { background-color: var(--secondary-color); }
+.tnc-page .contact-button svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* reveal-on-scroll (no CLS) */
+.tnc-page .rg-aos { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; will-change: opacity, transform; }
+.tnc-page .rg-aos.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .tnc-page .rg-aos { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .tnc-page .info-card,
+  .tnc-page .policy-links a,
+  .tnc-page .contact-button { transition: none !important; }
+  .tnc-page .info-card:hover,
+  .tnc-page .policy-links a:hover,
+  .tnc-page .contact-button:hover { transform: none !important; box-shadow: none !important; }
+}
+
+/* responsive */
+@media (min-width: 768px) {
+  .tnc-page main { padding: 3.5rem; }
+  .tnc-hero.page-hero { padding: 4rem 2rem; }
+  .tnc-page .card-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .tnc-page .policy-links { grid-template-columns: 1fr 1fr; }
+  .tnc-page .contact-buttons { flex-direction: row; justify-content: center; }
+}
