@@ -29,6 +29,7 @@ require_once $inc_path . 'whatsapp-button.php';
 require_once $inc_path . 'sticky-footer-bar.php';
 require_once $inc_path . 'product-filters.php';
 require_once $inc_path . 'video-shortcode.php';
+require_once $inc_path . 'product-video-gallery.php';
 // Note: Google Reviews functionality is included directly below in Section 3.
 
 
@@ -92,6 +93,10 @@ function sg_enqueue_assets() {
         wp_enqueue_style( 'sg-shop-style', $pages_css_path . 'shop.css', [ 'child-style' ], CHILD_THEME_VERSION );
     }
 
+    if ( is_shop() || is_product_taxonomy() ) {
+        wp_enqueue_style( 'sg-woocommerce-category-style', $pages_css_path . 'woocommerce-categories.css', [ 'child-style' ], CHILD_THEME_VERSION );
+    }
+
 	// --- Enqueue Scripts ---
 	wp_enqueue_script( 'sg-homepage-scripts', $js_path . 'homepage-scripts.js', [], CHILD_THEME_VERSION, true );
     wp_enqueue_script( 'sg-whatsapp-button-script', $js_path . 'whatsapp-button.js', [], CHILD_THEME_VERSION, true );
@@ -109,7 +114,16 @@ function sg_enqueue_assets() {
 
     // --- Conditionally Load Video Assets for Performance ---
     global $post;
-    if ( is_singular() && is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'product_video' ) ) {
+    $has_product_video_shortcode = is_singular() && is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'product_video' );
+    $has_product_gallery_video = false;
+    if ( is_product() ) {
+        $product_id = get_queried_object_id();
+        if ( $product_id && function_exists( 'sg_get_product_youtube_video_id' ) ) {
+            $has_product_gallery_video = (bool) sg_get_product_youtube_video_id( $product_id );
+        }
+    }
+
+    if ( $has_product_video_shortcode || $has_product_gallery_video ) {
         wp_enqueue_style( 'sg-video-facade-style', $css_path . 'video-facade.css', [], CHILD_THEME_VERSION );
         wp_enqueue_script( 'sg-video-loader-script', $js_path . 'video-loader.js', [], CHILD_THEME_VERSION, true );
     }

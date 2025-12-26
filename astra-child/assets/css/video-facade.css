@@ -74,6 +74,17 @@
     display: none;
 }
 
+.woocommerce-product-gallery__image .sg-video-wrapper {
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.woocommerce-product-gallery__image .sg-video-facade,
+.woocommerce-product-gallery__image .sg-video-wrapper iframe {
+    border-radius: 8px;
+}
+
 .sg-visually-hidden {
     position: absolute;
     width: 1px;
