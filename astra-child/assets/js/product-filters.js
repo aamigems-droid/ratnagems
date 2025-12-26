@@ -10,6 +10,7 @@ jQuery(function ($) {
     const productArchive = $('#sg-product-archive');
     const activeFiltersWrapper = $('#sg-active-filters-wrapper');
     let filterRequest = null;
+    const sliderInstances = {};
 
     const debounce = (fn, wait = 500) => {
         let timeout;
@@ -93,6 +94,7 @@ jQuery(function ($) {
         let currentMin = parseFloat(slider.data('current-min')), currentMax = parseFloat(slider.data('current-max'));
         if (!Number.isFinite(currentMin) || currentMin < minVal) currentMin = minVal;
         if (!Number.isFinite(currentMax) || currentMax > maxVal) currentMax = maxVal;
+        if (currentMax < currentMin) currentMax = maxVal;
         if (maxVal <= minVal) { slider.closest('.filter-group').hide(); return; }
 
         const formatValue = (v) => (step < 1 ? parseFloat(v).toFixed(2) : Math.round(v));
@@ -107,7 +109,11 @@ jQuery(function ($) {
             max: maxVal,
             step: step,
             values: [currentMin, currentMax],
-            create: () => updateText([currentMin, currentMax]),
+            create: () => {
+                updateText([currentMin, currentMax]);
+                minInput.val(currentMin);
+                maxInput.val(currentMax);
+            },
             slide: (e, ui) => updateText(ui.values),
             stop: (e, ui) => {
                 minInput.val(ui.values[0]);
@@ -115,6 +121,15 @@ jQuery(function ($) {
                 performAjaxFilter();
             }
         });
+
+        sliderInstances[sliderId] = {
+            slider,
+            minInput,
+            maxInput,
+            minVal,
+            maxVal,
+            updateText,
+        };
     }
 
     // --- Event Handlers & Initialization ---
@@ -131,8 +146,17 @@ jQuery(function ($) {
             const filterValue = filterPill.data('value');
 
             if (filterType === 'price' || filterType === 'carat') {
-                $(`#min_${filterType}`).val('');
-                $(`#max_${filterType}`).val('');
+                const sliderKey = filterType === 'price' ? '#price-range-slider' : '#carat-range-slider';
+                const sliderInstance = sliderInstances[sliderKey];
+                if (sliderInstance) {
+                    sliderInstance.slider.slider('values', [sliderInstance.minVal, sliderInstance.maxVal]);
+                    sliderInstance.updateText([sliderInstance.minVal, sliderInstance.maxVal]);
+                    sliderInstance.minInput.val(sliderInstance.minVal);
+                    sliderInstance.maxInput.val(sliderInstance.maxVal);
+                } else {
+                    $(`#min_${filterType}`).val('');
+                    $(`#max_${filterType}`).val('');
+                }
             } else {
                 $(`input[name="${filterType}"][value="${filterValue}"]`).prop('checked', false);
             }
