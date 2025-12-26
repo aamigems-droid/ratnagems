@@ -311,9 +311,9 @@ document.addEventListener('DOMContentLoaded', function () {
      * Initializes contact form.
      */
     function initializeContactForm() {
-        const contactForm = document.querySelector('#ratnagems-contact-form');
+        const contactForm = document.querySelector('#ratnagems-contact-form') || document.querySelector('#sg-contact-form');
         if (!contactForm) return;
-        const statusMessage = contactForm.querySelector('#form-status-message');
+        const statusMessage = contactForm.querySelector('#form-status-message') || document.querySelector('#sg-form-status-container');
         if (!statusMessage) return;
         if (typeof sg_ajax_obj === 'undefined' || !sg_ajax_obj.nonce) return;
 
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
             statusMessage.style.display = 'none';
-            statusMessage.className = '';
+            statusMessage.classList.remove('success', 'error');
 
             fetch(sg_ajax_obj.ajax_url, {
                 method: 'POST',
@@ -339,12 +339,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => {
                     if (response.success) {
                         statusMessage.textContent = response.data;
-                        statusMessage.className = 'success';
+                        statusMessage.classList.add('success');
                         form.reset();
                     } else {
                         statusMessage.textContent = response.data;
-                        statusMessage.className = 'error';
+                        statusMessage.classList.add('error');
                     }
+                    statusMessage.style.display = 'block';
                     setTimeout(() => {
                         submitButton.disabled = false;
                         submitButton.textContent = originalButtonText;
@@ -353,7 +354,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => {
                     console.error('Error:', error);
                     statusMessage.textContent = 'An unexpected error occurred. Please try again.';
-                    statusMessage.className = 'error';
+                    statusMessage.classList.add('error');
+                    statusMessage.style.display = 'block';
                     setTimeout(() => {
                         submitButton.disabled = false;
                         submitButton.textContent = originalButtonText;
@@ -362,11 +364,38 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /**
+     * Initializes the contact page map facade.
+     */
+    function initializeContactMap() {
+        const loadMapBtn = document.querySelector('#load-map-btn');
+        const mapFacade = document.querySelector('#map-facade');
+        const mapContainer = document.querySelector('#map-container');
+        if (!loadMapBtn || !mapFacade || !mapContainer) return;
+
+        loadMapBtn.addEventListener('click', () => {
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.16836757012!2d72.58740217531371!3d23.017589479177293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e85b54095cc55%3A0x74f34a72e7dbd13e!2sSarfaraz%20Gems%20-best%20gemstone%20shop%20in%20Ahmedabad!5e0!3m2!1sen!2sin!4v1755545554838!5m2!1sen!2sin';
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.style.border = '0';
+            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy';
+            iframe.title = 'Interactive Map for Sarfaraz Gems Store Location';
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+
+            mapContainer.appendChild(iframe);
+            mapFacade.style.display = 'none';
+            mapContainer.style.display = 'block';
+        }, { once: true });
+    }
+
     // Initialize all features
     initializeFinalSlider();
     initializeRudrakshaToggle();
     initializeSubscriptionForm();
     initializeContactForm();
+    initializeContactMap();
     initializeStickyHeader();
     initializeMegaMenu();
 
