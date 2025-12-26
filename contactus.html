@@ -57,7 +57,7 @@
             <!-- Right Column: Contact Form -->
             <div class="cu-form-panel-final">
                 <h2 class="cu-section-title-final">Send a Message</h2>
-                <form id="sg-contact-form" class="cu-contact-form">
+                <form id="ratnagems-contact-form" class="cu-contact-form">
                     <div class="cu-form-group">
                         <label for="contact-name">Full Name</label>
                         <input type="text" id="contact-name" name="contact_name" required placeholder="Enter your full name">
@@ -75,8 +75,8 @@
                         <textarea id="contact-message" name="contact_message" rows="5" required placeholder="How can we help you today?"></textarea>
                     </div>
                     <button type="submit" class="sg-btn sg-btn-primary">Send Message</button>
+                    <div id="form-status-message" class="cu-form-status-container" aria-live="polite"></div>
                 </form>
-                <div id="sg-form-status-container" class="cu-form-status-container"></div>
             </div>
         </div>
     </main>
@@ -95,40 +95,3 @@
         </div>
     </div>
 </div>
-
-<!-- Contact Page Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('sg-contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const statusContainer = document.getElementById('sg-form-status-container');
-            statusContainer.innerHTML = '<p class="success">Thank you! Your message has been sent.</p>';
-            contactForm.reset();
-        });
-    }
-
-    const loadMapBtn = document.getElementById('load-map-btn');
-    const mapFacade = document.getElementById('map-facade');
-    const mapContainer = document.getElementById('map-container');
-
-    if (loadMapBtn && mapContainer && mapFacade) {
-        loadMapBtn.addEventListener('click', function() {
-            const iframe = document.createElement('iframe');
-            iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.16836757012!2d72.58740217531371!3d23.017589479177293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e85b54095cc55%3A0x74f34a72e7dbd13e!2sSarfaraz%20Gems%20-best%20gemstone%20shop%20in%20Ahmedabad!5e0!3m2!1sen!2sin!4v1755545554838!5m2!1sen!2sin";
-            iframe.width = "100%";
-            iframe.height = "100%";
-            iframe.style.border = "0";
-            iframe.allowFullscreen = true;
-            iframe.loading = "lazy";
-            iframe.title = "Interactive Map for Sarfaraz Gems Store Location";
-            iframe.referrerpolicy="no-referrer-when-downgrade";
-
-            mapContainer.appendChild(iframe);
-            mapFacade.style.display = 'none';
-            mapContainer.style.display = 'block';
-        }, { once: true });
-    }
-});
-</script>
