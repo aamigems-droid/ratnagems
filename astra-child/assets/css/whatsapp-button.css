@@ -1,0 +1,69 @@
+/* =================================================================
+   Sarfaraz Gems - Custom Floating WhatsApp Button (v3 - Increased Spacing)
+   ================================================================= */
+
+:root {
+    --sg-gold: #dca54a;
+    --sg-dark-blue: #0f172a;
+}
+
+.sg-whatsapp-float {
+    position: fixed;
+    /* NEW: Increased to 95px for more space from the sticky bar */
+    bottom: 95px; 
+    right: 25px;
+    z-index: 1001; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: var(--sg-dark-blue);
+    color: var(--sg-gold);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 2px solid var(--sg-gold);
+}
+
+.sg-whatsapp-float:hover,
+.sg-whatsapp-float:focus {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background: var(--sg-gold);
+    color: var(--sg-dark-blue);
+    outline: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .sg-whatsapp-float {
+        animation: sg-pulse 2.5s infinite cubic-bezier(0.66, 0, 0, 1);
+    }
+}
+
+@keyframes sg-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 165, 74, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(220, 165, 74, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 165, 74, 0);
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .sg-whatsapp-float {
+        width: 55px;
+        height: 55px;
+        /* NEW: Adjusted for mobile with more space */
+        bottom: 90px; 
+        right: 20px;
+    }
+    .sg-whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+    }
+}

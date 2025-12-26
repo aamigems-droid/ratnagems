@@ -1,0 +1,134 @@
+<!-- 
+  Sarfaraz Gems "Contact Us" Page HTML (Final Attractive Version)
+  This code MUST be placed in a "Custom HTML" block to work correctly.
+-->
+<div class="contact-us-container">
+    <!-- Hero Section -->
+    <header class="cu-hero-final">
+        <div class="sg-container">
+            <h1 class="cu-hero-title">Connect With Sarfaraz Gems - Your Gemstone Shop in Ahmedabad</h1>
+            <p class="cu-hero-subtitle">Whether you need a consultation or are ready to find the perfect gemstone, our dedicated team is here to provide personalized support. As the best online gemstone store in India with a physical shop in Ahmedabad, we're here to help.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="sg-container">
+        <div class="cu-main-grid-final">
+            <!-- Left Column: Contact Info -->
+            <div class="cu-info-panel-final">
+                <h2 class="cu-section-title-final">Our Gemstone Shop Information</h2>
+                <p>For inquiries about our collection, gemstone certification, or pricing, please feel free to reach out. We look forward to assisting you.</p>
+                
+                <ul class="cu-contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Our Showroom</strong>
+                            <span>ASTODIYA CHAKLA, opp. Shubham hall, Old City, ASHABHIL NO TEKRO, Astodia, DARWAJA, Ahmedabad, Gujarat 380001</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Phone Support</strong>
+                            <a href="tel:+919978038886">+91 99780 38886</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email Us</strong>
+                            <a href="mailto:support@sarfarazgems.com">support@sarfarazgems.com</a>
+                        </div>
+                    </li>
+                     <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <a href="https://wa.me/919978038886?text=Hello%20Sarfaraz%20Gems,%20I%20have%20a%20question%20about%20your%20collection." target="_blank" rel="noopener noreferrer">Chat with an Expert</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <h3 class="cu-hours-title">Business Hours</h3>
+                <p class="cu-hours-text">Monday - Saturday: 10:00 AM - 7:00 PM (IST)</p>
+            </div>
+
+            <!-- Right Column: Contact Form -->
+            <div class="cu-form-panel-final">
+                <h2 class="cu-section-title-final">Send a Message</h2>
+                <form id="sg-contact-form" class="cu-contact-form">
+                    <div class="cu-form-group">
+                        <label for="contact-name">Full Name</label>
+                        <input type="text" id="contact-name" name="contact_name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="cu-form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" name="contact_email" required placeholder="Enter your email address">
+                    </div>
+                    <div class="cu-form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" name="contact_subject" required placeholder="e.g., Inquiry about Pukhraj Stone">
+                    </div>
+                    <div class="cu-form-group">
+                        <label for="contact-message">Your Message</label>
+                        <textarea id="contact-message" name="contact_message" rows="5" required placeholder="How can we help you today?"></textarea>
+                    </div>
+                    <button type="submit" class="sg-btn sg-btn-primary">Send Message</button>
+                </form>
+                <div id="sg-form-status-container" class="cu-form-status-container"></div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Google Maps Section -->
+    <div class="cu-map-section">
+        <div class="sg-container">
+             <h2 class="cu-map-title">Visit Our Gemstone Shop in Ahmedabad</h2>
+            <div class="cu-map-facade" id="map-facade">
+                <a href="https://maps.app.goo.gl/fGQxtGy3PHQmYtpn6" target="_blank" rel="noopener noreferrer" class="cu-map-link-wrapper">
+                    <img src="https://sarfarazgems.com/wp-content/uploads/2025/08/Screenshot-2025-08-19-005940.png" alt="Map showing location of Sarfaraz Gems store" class="cu-map-placeholder-img" loading="lazy">
+                </a>
+                <button id="load-map-btn" class="sg-btn sg-btn-primary">Load Interactive Map</button>
+            </div>
+            <div class="cu-map-container" id="map-container" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Page Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('sg-contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const statusContainer = document.getElementById('sg-form-status-container');
+            statusContainer.innerHTML = '<p class="success">Thank you! Your message has been sent.</p>';
+            contactForm.reset();
+        });
+    }
+
+    const loadMapBtn = document.getElementById('load-map-btn');
+    const mapFacade = document.getElementById('map-facade');
+    const mapContainer = document.getElementById('map-container');
+
+    if (loadMapBtn && mapContainer && mapFacade) {
+        loadMapBtn.addEventListener('click', function() {
+            const iframe = document.createElement('iframe');
+            iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.16836757012!2d72.58740217531371!3d23.017589479177293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e85b54095cc55%3A0x74f34a72e7dbd13e!2sSarfaraz%20Gems%20-best%20gemstone%20shop%20in%20Ahmedabad!5e0!3m2!1sen!2sin!4v1755545554838!5m2!1sen!2sin";
+            iframe.width = "100%";
+            iframe.height = "100%";
+            iframe.style.border = "0";
+            iframe.allowFullscreen = true;
+            iframe.loading = "lazy";
+            iframe.title = "Interactive Map for Sarfaraz Gems Store Location";
+            iframe.referrerpolicy="no-referrer-when-downgrade";
+
+            mapContainer.appendChild(iframe);
+            mapFacade.style.display = 'none';
+            mapContainer.style.display = 'block';
+        }, { once: true });
+    }
+});
+</script>

@@ -1,0 +1,42 @@
+/* =================================================================
+   Sarfaraz Gems - Custom Social Login Styles
+   ================================================================= */
+
+/* --- Main container for the entire social login block --- */
+.sg-social-login-container {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Separator Styling ("Or continue with") --- */
+.sg-social-login-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2em 0 1.5em;
+    color: #888;
+}
+
+.sg-social-login-separator::before,
+.sg-social-login-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sg-social-login-separator:not(:empty)::before {
+    margin-right: 1em;
+}
+
+.sg-social-login-separator:not(:empty)::after {
+    margin-left: 1em;
+}
+
+/* --- Container for just the Social Buttons --- */
+div.nextend-social-login-provider-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 1.5em;
+}
