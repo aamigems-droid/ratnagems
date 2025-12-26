@@ -1,0 +1,223 @@
+/*
+ * Sarfaraz Gems - "Contact Us" Page Styles (Final Attractive Version)
+ * This code should be added to the bottom of the main style.css file or a page-specific CSS block.
+*/
+
+/* --- 0. Theme Override --- */
+/* This removes the theme's default padding so our design can be full-width */
+.page .entry-content .contact-us-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+}
+
+/* --- 1. Base & Hero Section --- */
+.contact-us-container {
+    background-color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.cu-hero-final {
+    position: relative;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+    background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://sarfarazgems.com/wp-content/uploads/2020/12/banner-1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.cu-hero-title {
+    font-size: 2.5rem;
+    color: var(--ast-global-color-5, #FFFFFF) !important;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.cu-hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 65ch;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* --- 2. Main Content Grid --- */
+.contact-us-container main {
+    padding: 4rem 0;
+}
+.cu-main-grid-final {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+.cu-section-title-final {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--ast-global-color-0, #DCA54A); /* Gold */
+    display: inline-block;
+    color: var(--ast-global-color-2, #0F172A) !important; /* Navy */
+}
+
+/* --- 3. Info Panel (Left Column) --- */
+.cu-info-panel-final {
+    background-color: var(--ast-global-color-2, #0F172A); /* Navy */
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+    padding: 2.5rem;
+    border-radius: 12px;
+}
+.cu-info-panel-final .cu-section-title-final {
+    color: var(--ast-global-color-5, #FFFFFF) !important; /* White */
+}
+.cu-info-panel-final p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+.cu-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.cu-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.cu-contact-list i {
+    font-size: 1.5rem;
+    color: var(--ast-global-color-0, #DCA54A); /* Gold */
+    width: 30px;
+    text-align: center;
+}
+.cu-contact-list strong {
+    display: block;
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.cu-contact-list a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+.cu-contact-list a:hover {
+    color: var(--ast-global-color-0, #DCA54A); /* Gold */
+}
+.cu-hours-title {
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+    color: var(--ast-global-color-5, #FFFFFF) !important; /* White */
+}
+.cu-hours-text {
+    margin-bottom: 0;
+}
+
+/* --- 4. Form Panel (Right Column) --- */
+.cu-form-panel-final {
+    background-color: var(--ast-global-color-4, #FAF5E5); /* Light Cream */
+    padding: 2.5rem;
+    border-radius: 12px;
+}
+.cu-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.cu-form-group {
+    display: flex;
+    flex-direction: column;
+}
+.cu-form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--ast-global-color-2, #0F172A); /* Navy */
+}
+.cu-form-group input,
+.cu-form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--ast-global-color-6, #F0E6C5); /* Light Border */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.cu-form-group input::placeholder,
+.cu-form-group textarea::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+}
+.cu-form-group input:focus,
+.cu-form-group textarea:focus {
+    outline: none;
+    border-color: var(--ast-global-color-0, #DCA54A); /* Gold */
+    box-shadow: 0 0 0 3px rgba(220, 165, 74, 0.2);
+}
+.cu-form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.cu-form-panel-final .sg-btn {
+    align-self: flex-start;
+}
+.cu-form-status-container {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+.cu-form-status-container .success {
+    color: #155724;
+}
+
+/* --- 5. Map Section --- */
+.cu-map-section {
+    padding-bottom: 4rem;
+}
+.cu-map-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--ast-global-color-2, #0F172A) !important; /* Navy */
+}
+.cu-map-facade {
+    text-align: center;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Makes image smaller */
+    margin: 0 auto; /* Centers the smaller image */
+}
+.cu-map-placeholder-img {
+    width: 100%;
+    display: block;
+}
+.cu-map-link-wrapper {
+    display: block;
+}
+.cu-map-facade #load-map-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cu-map-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 6. Responsive Styles --- */
+@media (min-width: 992px) {
+    .cu-main-grid-final {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 4rem;
+    }
+    .cu-hero-final {
+        padding: 5rem 1.5rem;
+    }
+    .cu-hero-title {
+        font-size: 3.5rem;
+    }
+}

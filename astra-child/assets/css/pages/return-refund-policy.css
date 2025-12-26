@@ -1,0 +1,243 @@
+/*
+ * Sarfaraz Gems - "Return and Refund Policy" Page Styles
+ * This code should be added to the bottom of the main style.css file.
+*/
+
+/* --- 0. Theme Override --- */
+.page .entry-content .return-policy-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+}
+
+/* --- 1. Base & Hero Section --- */
+.return-policy-container {
+    background-color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.rp-hero {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background-color: var(--ast-global-color-2, #0F172A); /* Navy */
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.rp-hero-title {
+    font-size: 2.5rem;
+    color: var(--ast-global-color-5, #FFFFFF) !important;
+    margin-bottom: 0.5rem;
+}
+.rp-hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 60ch;
+    margin: 0 auto 1.5rem;
+}
+.rp-effective-date {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* --- 2. Main Content Layout --- */
+.return-policy-container main {
+    padding: 3rem 0;
+}
+.rp-main-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- 3. Sidebar Navigation --- */
+.rp-sidebar {
+    position: sticky;
+    top: 100px; /* Adjust based on your sticky header height */
+    align-self: start;
+}
+.rp-nav {
+    background-color: var(--ast-global-color-4, #FAF5E5); /* Light Cream */
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+.rp-nav h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ast-global-color-6, #F0E6C5); /* Light Border */
+    color: var(--ast-global-color-2, #0F172A) !important; /* Navy */
+}
+.rp-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.rp-nav li a {
+    display: block;
+    padding: 0.75rem 0;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--ast-global-color-3, #4A4A4A); /* Dark Gray */
+    transition: color 0.3s ease;
+}
+.rp-nav li a:hover {
+    color: var(--ast-global-color-0, #DCA54A); /* Gold */
+}
+
+/* --- 4. Content Sections --- */
+.rp-content {
+    line-height: 1.8;
+}
+.rp-section {
+    background-color: var(--ast-global-color-5, #FFFFFF); /* White */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+.rp-section:last-child {
+    margin-bottom: 0;
+}
+.rp-section h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--ast-global-color-2, #0F172A) !important; /* Navy */
+}
+.rp-section h2 i {
+    color: var(--ast-global-color-0, #DCA54A); /* Gold */
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+.rp-section ul {
+    padding-left: 20px;
+    margin-top: 1rem;
+}
+.rp-section ul li {
+    margin-bottom: 0.5rem;
+}
+.rp-criteria-list {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.rp-criterion-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.rp-criterion-item.rp-eligible {
+    background-color: #e8f5e9; /* Light Green */
+    color: #2e7d32;
+}
+.rp-criterion-item.rp-ineligible {
+    background-color: #ffebee; /* Light Red */
+    color: #c62828;
+}
+.rp-criterion-item i {
+    font-size: 1.2rem;
+}
+.rp-condition-card {
+    background-color: var(--ast-global-color-4, #FAF5E5);
+    border-left: 4px solid var(--ast-global-color-0, #DCA54A);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.rp-condition-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--ast-global-color-2, #0F172A);
+}
+.rp-process-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.rp-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+.rp-step-number {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background-color: var(--ast-global-color-2, #0F172A);
+    color: var(--ast-global-color-5, #FFFFFF);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.rp-step-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+.rp-contact-methods {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.rp-contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--ast-global-color-4, #FAF5E5);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--ast-global-color-3, #4A4A4A);
+    transition: all 0.3s ease;
+}
+.rp-contact-card:hover {
+    background-color: var(--ast-global-color-6, #F0E6C5);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+.rp-contact-card i {
+    font-size: 1.5rem;
+    color: var(--ast-global-color-2, #0F172A);
+}
+.rp-contact-card span {
+    font-weight: 600;
+}
+
+/* --- 5. Responsive Styles --- */
+@media (min-width: 992px) {
+    .rp-main-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 3rem;
+    }
+    .rp-hero-title {
+        font-size: 3rem;
+    }
+}
+@media (max-width: 991px) {
+    .rp-sidebar {
+        position: static; /* Unstick the sidebar on mobile */
+    }
+}
+@media (min-width: 768px) {
+    .rp-contact-methods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

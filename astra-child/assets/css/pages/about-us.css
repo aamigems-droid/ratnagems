@@ -1,0 +1,252 @@
+/*
+ * Sarfaraz Gems - "About Us" Page Styles (Final Attractive Version)
+ * This code is ONLY for the About Us page and is designed to work WITH your theme.
+*/
+
+/* --- 0. Theme Override --- */
+/* This removes the theme's default padding so our design can be full-width */
+.page .entry-content .about-us-page-v2 {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+}
+
+/* --- 1. Base & Hero Section --- */
+.about-us-page-v2 {
+    background-color: var(--ast-global-color-5, #FFFFFF); /* White */
+}
+.au-hero-v2 {
+    position: relative;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+    background-size: cover;
+    background-position: center;
+}
+.au-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.7); /* Dark blue overlay */
+    z-index: 1;
+}
+.au-hero-v2 .sg-container {
+    position: relative;
+    z-index: 2;
+}
+.au-hero-title {
+    font-size: 2.5rem;
+    color: var(--ast-global-color-5, #FFFFFF) !important;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.au-hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 65ch;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* --- 2. Main Content & Sections --- */
+.about-us-page-v2 main {
+    padding: 4rem 0;
+}
+.au-section-v2 {
+    margin-bottom: 5rem;
+}
+.au-section-v2:last-child {
+    margin-bottom: 0;
+}
+.au-section-title-v2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+    color: var(--ast-global-color-2, #0F172A) !important; /* Navy */
+}
+.au-section-title-v2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--ast-global-color-0, #DCA54A); /* Gold */
+}
+
+/* Founder Section */
+.au-founder-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 0 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto 5rem;
+}
+.au-founder-image img {
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.au-founder-name {
+    font-size: 1.5rem;
+    color: var(--ast-global-color-1, #D09A40); /* Gold Dark */
+    margin-bottom: 1rem;
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap;
+}
+
+/* Timeline Section */
+.au-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.au-timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--ast-global-color-6, #F0E6C5); /* Light Border */
+    top: 0;
+    bottom: 0;
+    left: 25px;
+}
+.au-timeline-item {
+    padding: 10px 40px 30px 70px;
+    position: relative;
+}
+.au-timeline-year {
+    position: absolute;
+    left: -15px;
+    top: 5px;
+    background-color: var(--ast-global-color-2, #0F172A); /* Navy */
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 4px solid var(--ast-global-color-5, #FFFFFF); /* White */
+    box-shadow: 0 0 0 3px var(--ast-global-color-2, #0F172A); /* Navy */
+    z-index: 1;
+}
+.au-timeline-content {
+    background-color: var(--ast-global-color-4, #FAF5E5); /* Light Cream */
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+}
+.au-timeline-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Promise Section */
+.au-promise-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+}
+.au-promise-card {
+    background-color: var(--ast-global-color-4, #FAF5E5); /* Light Cream */
+    border: 1px solid var(--ast-global-color-6, #F0E6C5); /* Light Border */
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.au-promise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.au-promise-icon {
+    font-size: 2.5rem;
+    color: var(--ast-global-color-0, #DCA54A); /* Gold */
+    margin-bottom: 1rem;
+}
+.au-promise-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* CTA Section */
+.au-cta-section {
+    background-color: var(--ast-global-color-2, #0F172A); /* Navy */
+    color: var(--ast-global-color-5, #FFFFFF); /* White */
+    text-align: center;
+    padding: 3rem 1.5rem;
+    border-radius: 12px;
+    margin: 0 1.5rem;
+}
+.au-cta-content h2 {
+    color: var(--ast-global-color-5, #FFFFFF) !important; /* White */
+    font-size: 2rem;
+}
+.au-cta-content p {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 60ch;
+    margin: 0 auto 1.5rem;
+}
+
+/* --- 3. Responsive Styles --- */
+@media (min-width: 768px) {
+    .au-hero-v2 {
+        padding: 5rem 1.5rem;
+    }
+    .au-hero-title {
+        font-size: 3.5rem;
+    }
+    .au-founder-section {
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+        text-align: left;
+    }
+    .au-founder-content .au-section-title-v2 {
+        text-align: left;
+    }
+    .au-founder-content .au-section-title-v2::after {
+        left: 0;
+        transform: translateX(0);
+    }
+    .au-promise-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 767px) {
+    .au-timeline::after {
+        left: 50%;
+        margin-left: -1.5px;
+    }
+    .au-timeline-item {
+        padding: 60px 10px 20px;
+    }
+    .au-timeline-year {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -20px;
+        width: 70px;
+        height: 70px;
+        font-size: 1.1rem;
+    }
+    .au-timeline-content {
+        text-align: center;
+    }
+}

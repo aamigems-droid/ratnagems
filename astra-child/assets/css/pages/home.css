@@ -1,0 +1,448 @@
+/*
+ * Sarfaraz Gems Child Theme Stylesheet (Final Brand-Aligned Version)
+ * File: home.css
+ * Changes: Integrated the new brand color palette and fonts.
+*/
+
+/* --- 1. Global Styles & Variables --- */
+:root {
+    /* New Brand Colors from your Theme Settings */
+    --color-gold: var(--ast-global-color-0, #DCA54A);
+    --color-gold-dark: var(--ast-global-color-1, #D09A40);
+    --color-dark-blue: var(--ast-global-color-2, #0F172A);
+    --color-dark-gray: var(--ast-global-color-3, #4A4A4A);
+    --color-light-bg: var(--ast-global-color-4, #FAF5E5);
+    --color-white: var(--ast-global-color-5, #FFFFFF);
+    --color-border: var(--ast-global-color-6, #F0E6C5);
+    --transition-speed: 0.3s ease;
+}
+
+/* Base Styles */
+body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-dark-gray);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sg-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.sg-bg-light {
+    background-color: var(--color-light-bg);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    color: var(--color-dark-blue);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.sg-section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sg-section-title h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.sg-section-title p {
+    font-size: 1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+.sg-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.sg-btn-primary {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-color: var(--color-gold);
+}
+
+.sg-btn-primary:hover {
+    background-color: var(--color-gold-dark);
+    border-color: var(--color-gold-dark);
+    transform: translateY(-2px);
+}
+
+.sg-btn-secondary {
+    background-color: transparent;
+    color: var(--color-dark-blue);
+    border-color: var(--color-dark-blue);
+}
+
+.sg-btn-secondary:hover {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+/* --- 2. Hero Slider --- */
+.final-slider-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.final-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: pan-y;
+}
+
+.final-slider__track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.final-slider__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.final-slider__slide a,
+.final-slider__slide picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.final-slider__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.final-slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+}
+
+.final-slider__arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.final-slider__arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(-50%);
+}
+
+.final-slider__arrow--prev {
+    left: 25px;
+}
+
+.final-slider__arrow--next {
+    right: 25px;
+}
+
+.final-slider__dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.final-slider__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.final-slider__dot.active {
+    background-color: #fff;
+}
+
+@media (min-width: 992px) {
+    .final-slider {
+        aspect-ratio: 1890 / 598;
+    }
+}
+
+/* --- 3. Page Sections --- */
+/* Trust Bar */
+.sg-trust-bar {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    padding: 1.5rem 0;
+}
+
+.sg-trust-bar .sg-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.sg-trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sg-trust-item i {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+}
+
+.sg-trust-item span {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Product Section & Grid */
+.sg-product-section {
+    padding: 4rem 0;
+}
+
+body .sg-product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+body .sg-product-grid > p {
+    display: contents;
+}
+
+.sg-product-card {
+    background: var(--white);
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    color: var(--color-dark-gray);
+    position: relative;
+}
+
+.sg-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 78, 129, 0.1);
+    z-index: 5;
+}
+
+.sg-product-image-wrapper {
+    background-color: #fdfdfd;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 4 / 3;
+}
+
+.sg-product-image-wrapper img {
+    max-height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.sg-product-card:hover .sg-product-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.sg-product-info {
+    padding: 0.75rem;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+}
+
+.sg-product-info h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-dark-blue);
+    margin: 0;
+}
+
+#rudraksha-visible {
+    margin-bottom: 1rem;
+}
+
+.sg-toggle-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+#rudraksha-toggle-btn {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-color: var(--color-gold);
+    display: inline-flex;
+    align-items: center;
+}
+
+#rudraksha-toggle-btn:hover {
+    background-color: var(--color-gold-dark);
+    border-color: var(--color-gold-dark);
+    color: var(--color-white);
+}
+
+.toggle-arrow {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    margin-left: 10px;
+    transition: transform var(--transition-speed);
+    transform: rotate(45deg);
+    /* Down arrow */
+}
+
+#rudraksha-toggle-btn.open .toggle-arrow {
+    transform: rotate(-135deg);
+    /* Up arrow */
+}
+
+/* Newsletter Section */
+.sg-newsletter {
+    background-color: var(--color-light-bg);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.sg-newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sg-newsletter h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.sg-newsletter p {
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+.sg-subscription-form .sg-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sg-subscription-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    font-size: 1rem;
+}
+
+.sg-subscription-form input:focus {
+    border-color: var(--color-gold);
+    outline: none;
+}
+
+.sg-form-message-container {
+    margin-top: 1rem;
+    min-height: 24px;
+    font-weight: 600;
+}
+
+.sg-form-message {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sg-form-message.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.sg-form-message.error {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+/* --- 4. Responsive Tablet & Desktop Styles --- */
+@media (min-width: 576px) {
+    body .sg-product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .sg-trust-bar .sg-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .sg-trust-item {
+        flex-direction: row;
+    }
+    .sg-subscription-form .sg-form-group {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sg-section-title h2 {
+        font-size: 2.5rem;
+    }
+    body .sg-product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

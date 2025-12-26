@@ -1,0 +1,3 @@
+body.woocommerce-shop main > div > ul.products {
+    display: none !important;
+}
