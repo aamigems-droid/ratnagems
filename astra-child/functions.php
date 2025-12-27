@@ -28,6 +28,8 @@ require_once $inc_path . 'mega-menu.php';
 require_once $inc_path . 'whatsapp-button.php';
 require_once $inc_path . 'sticky-footer-bar.php';
 require_once $inc_path . 'product-filters.php';
+require_once $inc_path . 'buy-now-button.php';
+require_once $inc_path . 'product-gallery-layout.php';
 require_once $inc_path . 'video-shortcode.php';
 require_once $inc_path . 'product-video-gallery.php';
 // Note: Google Reviews functionality is included directly below in Section 3.
