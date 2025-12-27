@@ -23,3 +23,130 @@ Template: astra
 #masthead.is-sticky {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+/* -----------------------------
+   WooCommerce: Category Layout
+-------------------------------- */
+.woocommerce ul.products li.product-category {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.woocommerce ul.products li.product-category a {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto;
+  text-decoration: none;
+}
+
+.woocommerce ul.products li.product-category a img {
+  width: 100% !important;
+  height: 128px !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+.woocommerce ul.products li.product-category a h2.woocommerce-loop-category__title {
+  position: static !important;
+  border-top: 1px solid #e0e0e0;
+  padding: 2px 2px;
+  margin-top: auto;
+  color: #333;
+}
+
+.woocommerce-loop-category__title .count {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .woocommerce ul.products li.product-category a img {
+    height: 115px !important;
+  }
+
+  .woocommerce ul.products li.product-category a h2.woocommerce-loop-category__title {
+    padding: 10px 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .woocommerce ul.products li.product-category a img {
+    height: auto !important;
+  }
+}
+
+/* Buy Now button Style */
+form.cart .single_add_to_cart_button,
+form.cart .buy-now-button {
+  flex: 1 1 0;
+  margin: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+/* ---------- Product Page Gallery ---------- */
+.woocommerce div.product div.images .rg-video-wrapper .rg-video-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background: transparent;
+}
+
+.woocommerce div.product div.images .rg-video-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.woocommerce-product-gallery {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.woocommerce-product-gallery.images > .flex-viewport {
+  aspect-ratio: 4 / 3;
+  align-items: center;
+  overflow: hidden;
+}
+
+.woocommerce-product-gallery .woocommerce-product-gallery__image,
+.woocommerce-product-gallery .ast-woocommerce-product-gallery__image,
+.woocommerce-product-gallery .flex-control-thumbs li {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.woocommerce-product-gallery .ast-woocommerce-product-gallery__image.rg-video-thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.woocommerce-product-gallery .woocommerce-product-gallery__image img:not(.rg-video-poster):not(.rg-video-thumb-img),
+.woocommerce-product-gallery .ast-woocommerce-product-gallery__image:not(.rg-video-thumbnail) img,
+.woocommerce-product-gallery .flex-control-thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.woocommerce-product-gallery .woocommerce-product-gallery__image img.rg-video-poster,
+.woocommerce-product-gallery .ast-woocommerce-product-gallery__image.rg-video-thumbnail img,
+.woocommerce-product-gallery .ast-woocommerce-product-gallery__image.rg-video-thumbnail img.rg-video-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  background: transparent;
+}

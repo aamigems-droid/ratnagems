@@ -1,9 +1,0 @@
-form.cart .single_add_to_cart_button,
-form.cart .buy-now-button {
-  flex: 1 1 0;
-  margin: 5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-}
