@@ -1,33 +1,16 @@
 <?php
 /**
  * Buy Now button helpers.
+ *
+ * @package Ratna Gems
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-add_action( 'wp_enqueue_scripts', 'sg_enqueue_buy_now_button_styles', 20 );
-function sg_enqueue_buy_now_button_styles(): void {
-    if ( ! function_exists( 'is_product' ) || ! is_product() ) {
-        return;
-    }
-
-    $css_path = get_stylesheet_directory() . '/assets/css/buy-now-button.css';
-    if ( ! file_exists( $css_path ) ) {
-        return;
-    }
-
-    wp_enqueue_style(
-        'sg-buy-now-button',
-        get_stylesheet_directory_uri() . '/assets/css/buy-now-button.css',
-        array( 'child-style' ),
-        CHILD_THEME_VERSION
-    );
-}
-
-add_action( 'wp_loaded', 'sg_handle_buy_now_request' );
-function sg_handle_buy_now_request(): void {
+add_action( 'wp_loaded', 'ratna_gems_handle_buy_now_request' );
+function ratna_gems_handle_buy_now_request(): void {
     if ( is_admin() || ! function_exists( 'WC' ) ) {
         return;
     }
@@ -109,8 +92,8 @@ function sg_handle_buy_now_request(): void {
     exit;
 }
 
-add_shortcode( 'sg_buy_now_button', 'sg_buy_now_shortcode' );
-function sg_buy_now_shortcode(): string {
+add_shortcode( 'rg_buy_now_button', 'ratna_gems_buy_now_shortcode' );
+function ratna_gems_buy_now_shortcode(): string {
     global $product;
 
     if ( ! class_exists( 'WC_Product' ) || ! $product instanceof WC_Product ) {
@@ -135,18 +118,18 @@ function sg_buy_now_shortcode(): string {
     );
 }
 
-add_action( 'woocommerce_after_add_to_cart_button', 'sg_render_buy_now_button', 15 );
-function sg_render_buy_now_button(): void {
+add_action( 'woocommerce_after_add_to_cart_button', 'ratna_gems_render_buy_now_button', 15 );
+function ratna_gems_render_buy_now_button(): void {
     global $product;
 
     if ( ! class_exists( 'WC_Product' ) || ! $product instanceof WC_Product ) {
         return;
     }
 
-    $should_render = apply_filters( 'sg_show_buy_now_button', true, $product );
+    $should_render = apply_filters( 'ratna_gems_show_buy_now_button', true, $product );
     if ( ! $should_render ) {
         return;
     }
 
-    echo do_shortcode( '[sg_buy_now_button]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo do_shortcode( '[rg_buy_now_button]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }

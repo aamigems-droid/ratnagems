@@ -27,11 +27,13 @@ require_once $inc_path . 'subscriber-functions.php';
 require_once $inc_path . 'mega-menu.php';
 require_once $inc_path . 'whatsapp-button.php';
 require_once $inc_path . 'sticky-footer-bar.php';
-require_once $inc_path . 'product-filters.php';
-require_once $inc_path . 'buy-now-button.php';
-require_once $inc_path . 'product-gallery-layout.php';
-require_once $inc_path . 'video-shortcode.php';
-require_once $inc_path . 'product-video-gallery.php';
+require_once $inc_path . 'shortcode-video.php';
+
+if ( class_exists( 'WooCommerce' ) ) {
+    require_once $inc_path . 'product-filters.php';
+    require_once $inc_path . 'buy-now-button.php';
+    require_once $inc_path . 'product-video-in-gallery.php';
+}
 // Note: Google Reviews functionality is included directly below in Section 3.
 
 
@@ -57,7 +59,6 @@ function sg_enqueue_assets() {
     wp_enqueue_style( 'sg-mega-menu-style', $css_path . 'mega-menu.css', [ 'child-style' ], CHILD_THEME_VERSION );
     wp_enqueue_style( 'sg-whatsapp-button-style', $css_path . 'whatsapp-button.css', [ 'child-style' ], CHILD_THEME_VERSION );
     wp_enqueue_style( 'sg-sticky-footer-bar-style', $css_path . 'sticky-footer-bar.css', [ 'child-style' ], CHILD_THEME_VERSION );
-    wp_enqueue_style( 'sg-product-filters-style', $css_path . 'product-filters.css', [ 'child-style' ], CHILD_THEME_VERSION );
 
     if ( is_front_page() ) {
         wp_enqueue_style( 'sg-homepage-page-style', $pages_css_path . 'home.css', [ 'child-style' ], CHILD_THEME_VERSION );
@@ -91,44 +92,12 @@ function sg_enqueue_assets() {
         wp_enqueue_style( 'sg-about-us-style', $pages_css_path . 'about-us.css', [ 'child-style' ], CHILD_THEME_VERSION );
     }
 
-    if ( is_shop() ) {
-        wp_enqueue_style( 'sg-shop-style', $pages_css_path . 'shop.css', [ 'child-style' ], CHILD_THEME_VERSION );
-    }
-
-    if ( is_shop() || is_product_taxonomy() ) {
-        wp_enqueue_style( 'sg-woocommerce-category-style', $pages_css_path . 'woocommerce-categories.css', [ 'child-style' ], CHILD_THEME_VERSION );
-    }
-
 	// --- Enqueue Scripts ---
 	wp_enqueue_script( 'sg-homepage-scripts', $js_path . 'homepage-scripts.js', [], CHILD_THEME_VERSION, true );
     wp_enqueue_script( 'sg-whatsapp-button-script', $js_path . 'whatsapp-button.js', [], CHILD_THEME_VERSION, true );
-    
-    // Product Filter scripts (with jQuery UI dependency)
-    wp_enqueue_script('jquery-ui-slider');
-    wp_enqueue_script( 'sg-product-filters-script', $js_path . 'product-filters.js', ['jquery', 'jquery-ui-slider'], CHILD_THEME_VERSION, true );
 
     // --- Localize Scripts (Pass PHP data to JS) ---
     wp_localize_script( 'sg-homepage-scripts', 'sg_ajax_obj', [ 'ajax_url' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'add_new_subscriber_nonce' ) ] );
-
-    $filter_params = [ 'ajax_url' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'sg_filter_nonce' ), 'currency_symbol' => get_woocommerce_currency_symbol(), 'archive_slug' => '', 'is_cat' => false ];
-    if ( is_product_category() ) { $filter_params['archive_slug'] = get_queried_object()->slug; $filter_params['is_cat'] = true; } elseif ( is_product_tag() ) { $filter_params['archive_slug'] = get_queried_object()->slug; }
-    wp_localize_script( 'sg-product-filters-script', 'sg_filter_params', $filter_params );
-
-    // --- Conditionally Load Video Assets for Performance ---
-    global $post;
-    $has_product_video_shortcode = is_singular() && is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'product_video' );
-    $has_product_gallery_video = false;
-    if ( is_product() ) {
-        $product_id = get_queried_object_id();
-        if ( $product_id && function_exists( 'sg_get_product_youtube_video_id' ) ) {
-            $has_product_gallery_video = (bool) sg_get_product_youtube_video_id( $product_id );
-        }
-    }
-
-    if ( $has_product_video_shortcode || $has_product_gallery_video ) {
-        wp_enqueue_style( 'sg-video-facade-style', $css_path . 'video-facade.css', [], CHILD_THEME_VERSION );
-        wp_enqueue_script( 'sg-video-loader-script', $js_path . 'video-loader.js', [], CHILD_THEME_VERSION, true );
-    }
 }
 
 
