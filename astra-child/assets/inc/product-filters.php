@@ -41,9 +41,9 @@ final class SG_Product_Filter {
         if ( ! empty( $filter_data['min_price'] ) && is_numeric($filter_data['min_price']) ) $args['meta_query'][] = [ 'key' => '_price', 'value' => (float) $filter_data['min_price'], 'compare' => '>=', 'type' => 'NUMERIC' ];
         if ( ! empty( $filter_data['max_price'] ) && is_numeric($filter_data['max_price']) ) $args['meta_query'][] = [ 'key' => '_price', 'value' => (float) $filter_data['max_price'], 'compare' => '<=', 'type' => 'NUMERIC' ];
         
-        // Your site uses 'pa_weight' for carat, not '_weight'
-        if ( ! empty( $filter_data['min_carat'] ) && is_numeric($filter_data['min_carat']) ) $args['meta_query'][] = [ 'key' => 'pa_weight', 'value' => (float) $filter_data['min_carat'], 'compare' => '>=', 'type' => 'DECIMAL(10,3)' ];
-        if ( ! empty( $filter_data['max_carat'] ) && is_numeric($filter_data['max_carat']) ) $args['meta_query'][] = [ 'key' => 'pa_weight', 'value' => (float) $filter_data['max_carat'], 'compare' => '<=', 'type' => 'DECIMAL(10,3)' ];
+        // Carat values are stored in the WooCommerce weight meta field.
+        if ( ! empty( $filter_data['min_carat'] ) && is_numeric($filter_data['min_carat']) ) $args['meta_query'][] = [ 'key' => '_weight', 'value' => (float) $filter_data['min_carat'], 'compare' => '>=', 'type' => 'DECIMAL(10,3)' ];
+        if ( ! empty( $filter_data['max_carat'] ) && is_numeric($filter_data['max_carat']) ) $args['meta_query'][] = [ 'key' => '_weight', 'value' => (float) $filter_data['max_carat'], 'compare' => '<=', 'type' => 'DECIMAL(10,3)' ];
 
         if ( ! empty( $filter_data['filter_origin'] ) ) {
             $terms = is_array($filter_data['filter_origin']) ? $filter_data['filter_origin'] : explode( ',', $filter_data['filter_origin'] );
@@ -73,7 +73,7 @@ final class SG_Product_Filter {
         global $wpdb;
         $ids_placeholder = implode( ',', array_map('absint', $product_ids) );
         $min_max_price = $wpdb->get_row("SELECT MIN(CAST(meta_value AS DECIMAL(18,2))) AS min_price, MAX(CAST(meta_value AS DECIMAL(18,2))) AS max_price FROM {$wpdb->postmeta} WHERE post_id IN ($ids_placeholder) AND meta_key='_price'");
-        $min_max_carat = $wpdb->get_row("SELECT MIN(CAST(meta_value AS DECIMAL(18,3))) AS min_carat, MAX(CAST(meta_value AS DECIMAL(18,3))) AS max_carat FROM {$wpdb->postmeta} WHERE post_id IN ($ids_placeholder) AND meta_key='pa_weight' AND meta_value > 0");
+        $min_max_carat = $wpdb->get_row("SELECT MIN(CAST(meta_value AS DECIMAL(18,3))) AS min_carat, MAX(CAST(meta_value AS DECIMAL(18,3))) AS max_carat FROM {$wpdb->postmeta} WHERE post_id IN ($ids_placeholder) AND meta_key='_weight' AND meta_value > 0");
         $origin_terms = get_terms(['taxonomy' => 'pa_origin', 'object_ids' => $product_ids, 'hide_empty' => true]);
 
         $data = [
@@ -155,10 +155,10 @@ final class SG_Product_Filter {
         if ( ! empty( $_GET ) ) {
             $get = map_deep( wp_unslash( $_GET ), 'sanitize_text_field' );
         }
-        $current_min_price = $get['min_price'] ?? $data['min_price'];
-        $current_max_price = $get['max_price'] ?? $data['max_price'];
-        $current_min_carat = $get['min_carat'] ?? $data['min_carat'];
-        $current_max_carat = $get['max_carat'] ?? $data['max_carat'];
+        $current_min_price = isset( $get['min_price'] ) && is_numeric( $get['min_price'] ) ? (float) $get['min_price'] : $data['min_price'];
+        $current_max_price = isset( $get['max_price'] ) && is_numeric( $get['max_price'] ) ? (float) $get['max_price'] : $data['max_price'];
+        $current_min_carat = isset( $get['min_carat'] ) && is_numeric( $get['min_carat'] ) ? (float) $get['min_carat'] : $data['min_carat'];
+        $current_max_carat = isset( $get['max_carat'] ) && is_numeric( $get['max_carat'] ) ? (float) $get['max_carat'] : $data['max_carat'];
         $current_origins = isset($get['filter_origin']) ? explode(',', $get['filter_origin']) : [];
         $form_action = is_product_taxonomy() ? get_term_link( get_queried_object() ) : get_permalink( wc_get_page_id( 'shop' ) );
         ?>
